@@ -1,3 +1,5 @@
+#ifndef REGISTERS_H_
+#define REGISTERS_H_
 //REGISTERS CONFIGURATION
 #define PORTA *(vuint8_t*)(0x3B)//8 bit register
 #define DDRA *(vuint8_t*)(0x3A)//8 bit register
@@ -25,3 +27,4 @@
 //general int control reg
 #define GICR *(vuint8_t*)(0x5B)//8 bit register
 #define GIFR *(vuint8_t*)(0x5A)//8 bit register
+#endif /*REGISTERS_H_*/

@@ -8,6 +8,8 @@
 #include "DIO.h"
 //global variables
 //function definitions
+
+//SET DIRECTION OF SPECIFIC PIN AT A SPECEFIC PORT (DIRECTION REGISTER CONFIGURATION)
 DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, DIO_direction direction)
 {
 	switch(portnumber)
@@ -15,12 +17,12 @@ DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, DIO_direction directi
 		case PORT_A:
 			if (direction == INPUT)
 			{
-				DDRA &=~(1<<pinnumber);
+				DDRA &=~(1<<pinnumber);//set pin x in port A as input (0)
 				return OK;
 			}
 			else if(direction == OUTPUT)
 			{
-				DDRA |=(1<<pinnumber);
+				DDRA |=(1<<pinnumber);//set pin x in port A as output (1)
 				return OK;
 			}
 			else
@@ -31,12 +33,12 @@ DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, DIO_direction directi
 		case PORT_B:
 		if (direction == INPUT)
 		{
-			DDRB &=~(1<<pinnumber);
+			DDRB &=~(1<<pinnumber);//set pin x in port B as input (0)
 			return OK;
 		}
 		else if(direction == OUTPUT)
 		{
-			DDRB |=(1<<pinnumber);
+			DDRB |=(1<<pinnumber);//set pin x in port B as output (1)
 			return OK;
 		}
 		else
@@ -48,12 +50,12 @@ DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, DIO_direction directi
 		case PORT_C:
 		if (direction == INPUT)
 		{
-			DDRC &=~(1<<pinnumber);
+			DDRC &=~(1<<pinnumber);//set pin x in port C as input (0)
 			return OK;
 		}
 		else if(direction == OUTPUT)
 		{
-			DDRC |=(1<<pinnumber);
+			DDRC |=(1<<pinnumber);//set pin x in port C as output (1)
 			return OK;
 		}
 		else
@@ -65,12 +67,12 @@ DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, DIO_direction directi
 		case PORT_D:
 		if (direction == INPUT)
 		{
-			DDRD &=~(1<<pinnumber);
+			DDRD &=~(1<<pinnumber); //set pin x in port D as input (0)
 			return OK;
 		}
 		else if(direction == OUTPUT)
 		{
-			DDRD |=(1<<pinnumber);
+			DDRD |=(1<<pinnumber); //set pin x in port D as input (1)
 			return OK;
 		}
 		else
@@ -84,6 +86,8 @@ DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, DIO_direction directi
 		break;
 	}
 }
+
+//SET OR CLEAR A SPECEFIC PIN AT A SPECEFIC PORT (DATA REGISTER CONFIGURATION)
 DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state)
 {
 		switch(portnumber)
@@ -91,12 +95,12 @@ DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state)
 			case PORT_A:
 			if (state == LOW)
 			{
-				PORTA &=~(1<<pinnumber);
+				PORTA &=~(1<<pinnumber); //CLEAR PIN X IN PORTA
 				return OK;
 			}
 			else if(state == HIGH)
 			{
-				PORTA |=(1<<pinnumber);
+				PORTA |=(1<<pinnumber); //SET PIN X IN PORTA
 				return OK;
 			}
 			else
@@ -108,12 +112,12 @@ DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state)
 			case PORT_B:
 			if (state == LOW)
 			{
-				PORTB &=~(1<<pinnumber);
+				PORTB &=~(1<<pinnumber); //CLEAR PIN X IN PORTB
 				return OK;
 			}
 			else if(state == HIGH)
 			{
-				PORTB |=(1<<pinnumber);
+				PORTB |=(1<<pinnumber); //SET PIN X IN PORTB
 				return OK;
 			}
 			else
@@ -125,12 +129,12 @@ DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state)
 			case PORT_C:
 			if (state == LOW)
 			{
-				PORTC &=~(1<<pinnumber);
+				PORTC &=~(1<<pinnumber); //CLEAR PIN X IN PORTC
 				return OK;
 			}
 			else if(state == HIGH)
 			{
-				PORTC |=(1<<pinnumber);
+				PORTC |=(1<<pinnumber); //SET PIN X IN PORTC
 				return OK;
 			}
 			else
@@ -142,12 +146,12 @@ DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state)
 			case PORT_D:
 			if (state == LOW)
 			{
-				PORTD &=~(1<<pinnumber);
+				PORTD &=~(1<<pinnumber); //CLEAR PIN X IN PORTD
 				return OK;
 			}
 			else if(state == HIGH)
 			{
-				PORTD |=(1<<pinnumber);
+				PORTD |=(1<<pinnumber); //SET PIN X IN PORTD
 				return OK;
 			}
 			else
@@ -161,15 +165,16 @@ DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state)
 			break;
 		}
 }
-void DIO_toggle(vuint8_t portnumber,vuint8_t pinnumber)
+//TOGGLE THE LED WITH A DELAY 5 SECOND 
+DIO_ERROR DIO_toggle(vuint8_t portnumber,vuint8_t pinnumber)
 {
 	DIO_write(portnumber,pinnumber,HIGH);
-	//DELAY(1,256,19532);
 	delay1(5);
 	DIO_write(portnumber,pinnumber,LOW);
-	//DELAY(1,256,19532);
 	delay1(5);
+	return OK;
 }
+//READ PIN STATUS (READ STATUS REGISTER)
 vuint8_t DIO_read(vuint8_t portnumber,vuint8_t pinnumber, vuint8_t *value)
 {
 	switch(portnumber)
@@ -202,7 +207,7 @@ DELAY_E DELAY(int prescaler,int intial_value,int no_overflow)
 	{
 		while(no_overflow)
 		{
-			//NORMAL MODE not start
+			//NORMAL MODE STOP
 			TCCR0=0x00;
 			//set timer initial value (12)
 			TCNT0=intial_value;
@@ -235,7 +240,7 @@ DELAY_E DELAY(int prescaler,int intial_value,int no_overflow)
 }
 
 
-void delay1(double t)
+DELAY_E delay1(double t)//DELAY FUNCTION WITH A TIME IN SECONDS
 {
 	int n_o_overflow;
 	if(t<=0.000256)//no prescaler&no overflows
@@ -246,6 +251,7 @@ void delay1(double t)
 		TCCR0|=(1<<0);
 		while((TIFR & (1<<0))==0);
 		TIFR|=(1<<0);
+		return DELAY_OK;
 	}
 	else if(t<=0.002048)//8 prescaler&no overflows
 	{
@@ -254,6 +260,7 @@ void delay1(double t)
 		TCCR0|=(1<<1);
 		while((TIFR & (1<<0))==0);
 		TIFR|=(1<<0);
+		return DELAY_OK;
 	}
 	else if(t<=0.016384)//64 prescaler&no overflows
 	{
@@ -263,6 +270,7 @@ void delay1(double t)
 		TCCR0|=(1<<1);
 		while((TIFR & (1<<0))==0);
 		TIFR|=(1<<0);
+		return DELAY_OK;
 	}
 	else if(t<=0.065536)//256 prescaler&no overflows
 	{
@@ -271,6 +279,7 @@ void delay1(double t)
 		TCCR0|=(1<<2);
 		while((TIFR & (1<<0))==0);
 		TIFR|=(1<<0);
+		return DELAY_OK;
 	}
 	else if(t<=0.262144)//1024 prescaler&no overflows
 	{
@@ -280,8 +289,9 @@ void delay1(double t)
 		TCCR0|=(1<<2);
 		while((TIFR & (1<<0))==0);
 		TIFR|=(1<<0);
+		return DELAY_OK;
 	}
-	else//1024 prescaler & overflows
+	else if(t>0.262144)//1024 prescaler & overflows
 	{
 		n_o_overflow=(ceil)(t/0.262144);
 		while(n_o_overflow)
@@ -294,7 +304,8 @@ void delay1(double t)
 			TIFR|=(1<<0);
 			n_o_overflow --;
 		}
+		return DELAY_OK;
 	}
+	else
+	return DELAY_ERROR;
 }
-
-//enable global interrupt

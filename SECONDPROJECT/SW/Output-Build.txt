@@ -1,0 +1,53 @@
+﻿------ Build started: Project: AVR PROJECT, Configuration: Debug AVR ------
+Build started.
+Project "AVR PROJECT.cproj" (default targets):
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "CoreBuild" in file "C:\Program Files (x86)\Atmel\Studio\7.0\Vs\Compiler.targets" from project "C:\Users\MOSTAFA\Desktop\New folder\first\first\AVR PROJECT.cproj" (target "Build" depends on it):
+	Task "RunCompilerTask"
+		Shell Utils Path C:\Program Files (x86)\Atmel\Studio\7.0\shellUtils
+		C:\Program Files (x86)\Atmel\Studio\7.0\shellUtils\make.exe all --jobs 4 --output-sync 
+		Building file: ../APPLICATION/APPLICATION.c
+		Invoking: AVR/GNU C Compiler : 5.4.0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe"  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "APPLICATION/APPLICATION.d" -MT"APPLICATION/APPLICATION.d" -MT"APPLICATION/APPLICATION.o"   -o "APPLICATION/APPLICATION.o" "../APPLICATION/APPLICATION.c" 
+		Finished building: ../APPLICATION/APPLICATION.c
+		Building file: ../ECUAL/BUTTON DRIVER/BUTTON.c
+		Invoking: AVR/GNU C Compiler : 5.4.0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe"  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "ECUAL/BUTTON DRIVER/BUTTON.d" -MT"ECUAL/BUTTON DRIVER/BUTTON.d" -MT"ECUAL/BUTTON DRIVER/BUTTON.o"   -o "ECUAL/BUTTON DRIVER/BUTTON.o" "../ECUAL/BUTTON DRIVER/BUTTON.c" 
+		Finished building: ../ECUAL/BUTTON DRIVER/BUTTON.c
+		Building file: ../MCAL/DIO.c
+		Invoking: AVR/GNU C Compiler : 5.4.0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe"  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "MCAL/DIO.d" -MT"MCAL/DIO.d" -MT"MCAL/DIO.o"   -o "MCAL/DIO.o" "../MCAL/DIO.c" 
+		Finished building: ../MCAL/DIO.c
+		Building file: .././main.c
+		Invoking: AVR/GNU C Compiler : 5.4.0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe"  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "main.d" -MT"main.d" -MT"main.o"   -o "main.o" ".././main.c" 
+		Finished building: .././main.c
+		Building file: ../PEDESTRAIN MODE/predestrain.c
+		Invoking: AVR/GNU C Compiler : 5.4.0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe"  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "PEDESTRAIN MODE/predestrain.d" -MT"PEDESTRAIN MODE/predestrain.d" -MT"PEDESTRAIN MODE/predestrain.o"   -o "PEDESTRAIN MODE/predestrain.o" "../PEDESTRAIN MODE/predestrain.c" 
+		Finished building: ../PEDESTRAIN MODE/predestrain.c
+		Building target: AVR PROJECT.elf
+		Invoking: AVR/GNU Linker : 5.4.0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe" -o "AVR PROJECT.elf"  APPLICATION/APPLICATION.o "ECUAL/BUTTON DRIVER/BUTTON.o" "ECUAL/LED DEIVER/LED.o" MCAL/DIO.o main.o "NORMAL MODE/normal.o" "PEDESTRAIN MODE/predestrain.o"   -Wl,-Map="AVR PROJECT.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a"  
+		Finished building target: AVR PROJECT.elf
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "AVR PROJECT.elf" "AVR PROJECT.hex"
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "AVR PROJECT.elf" "AVR PROJECT.eep" || exit 0
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "AVR PROJECT.elf" > "AVR PROJECT.lss"
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "AVR PROJECT.elf" "AVR PROJECT.srec"
+		"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "AVR PROJECT.elf"
+		   text	   data	    bss	    dec	    hex	filename
+		   3330	      0	      1	   3331	    d03	AVR PROJECT.elf
+	Done executing task "RunCompilerTask".
+	Task "RunOutputFileVerifyTask"
+				Program Memory Usage 	:	3330 bytes   10.2 % Full
+				Data Memory Usage 		:	1 bytes   0.0 % Full
+				Warning: Memory Usage estimation may not be accurate if there are sections other than .text sections in ELF file
+	Done executing task "RunOutputFileVerifyTask".
+Done building target "CoreBuild" in project "AVR PROJECT.cproj".
+Target "PostBuildEvent" skipped, due to false condition; ('$(PostBuildEvent)' != '') was evaluated as ('' != '').
+Target "Build" in file "C:\Program Files (x86)\Atmel\Studio\7.0\Vs\Avr.common.targets" from project "C:\Users\MOSTAFA\Desktop\New folder\first\first\AVR PROJECT.cproj" (entry point):
+Done building target "Build" in project "AVR PROJECT.cproj".
+Done building project "AVR PROJECT.cproj".
+
+Build succeeded.
+========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========

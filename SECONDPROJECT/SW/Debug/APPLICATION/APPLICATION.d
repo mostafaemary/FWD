@@ -15,9 +15,7 @@ APPLICATION/APPLICATION.d APPLICATION/APPLICATION.o: \
  ../APPLICATION/../PEDESTRAIN\ MODE/predestrain.h \
  ../APPLICATION/../PEDESTRAIN\ MODE/../ECUAL/LED\ DEIVER/LED.h \
  ../APPLICATION/../ECUAL/BUTTON\ DRIVER/BUTTON.h \
- ../APPLICATION/../ECUAL/BUTTON\ DRIVER/../../MCAL/DIO.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h
+ ../APPLICATION/../ECUAL/BUTTON\ DRIVER/../../MCAL/DIO.h
 
 ../APPLICATION/APPLICATION.h:
 
@@ -52,7 +50,3 @@ c:\users\mostafa\desktop\new\ folder\first\first\mcal\dio.h:
 ../APPLICATION/../ECUAL/BUTTON\ DRIVER/BUTTON.h:
 
 ../APPLICATION/../ECUAL/BUTTON\ DRIVER/../../MCAL/DIO.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:

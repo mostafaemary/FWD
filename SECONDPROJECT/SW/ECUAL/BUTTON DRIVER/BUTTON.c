@@ -6,16 +6,16 @@
  */
 #include "BUTTON.h"
 
-void BUTTON_init(vuint8_t portnumber,vuint8_t pinnumber)//button is an input device
+BUTTON_S BUTTON_init(vuint8_t portnumber,vuint8_t pinnumber)//button is an input device
 {
 	DIO_init(portnumber,pinnumber,INPUT);
+	return BUTTON_OK ;
 }
- BUTTON_S BUTTON_READ(vuint8_t portnumber,vuint8_t pinnumber)
+ BUTTON_S BUTTON_READ(vuint8_t portnumber,vuint8_t pinnumber)// READING BUTTON STATUS
  {
 	 BUTTON_init(portnumber,pinnumber);
 	 if( ((portnumber&(1<<pinnumber))>>pinnumber) )
-        return PIN_HIGH;
+        return BUTTON_PRESSED ;
     else
-        return PIN_LOW;    
+        return PIN_RELEASED;    
  }
- 

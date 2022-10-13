@@ -2,7 +2,7 @@
  * driver_lib.h
  *
  * Created: 9/30/2022 7:11:31 AM
- *  Author: MOSTAFA
+ *  Author: MOSTAFA EMARY
  */ 
 
 
@@ -38,7 +38,6 @@ typedef enum DELAY_E
 }DELAY_E;
 //all driver macros
 //PORTS DEFINES
-
 #define PORT_A 'A'
 #define PORT_B 'B'
 #define PORT_C 'C'
@@ -48,11 +47,11 @@ typedef enum DELAY_E
 //functions prototypes
 DIO_ERROR DIO_init(vuint8_t portnumber,vuint8_t pinnumber, vuint8_t direction);// SET DIRECTION
 DIO_ERROR DIO_write(vuint8_t portnumber,vuint8_t pinnumber, DIO_STATE state);//write on pin 
-void DIO_toggle(vuint8_t portnumber,vuint8_t pinnumber);//toggle pin 
+DIO_ERROR DIO_toggle(vuint8_t portnumber,vuint8_t pinnumber);//toggle pin 
 vuint8_t DIO_read(vuint8_t portnumber,vuint8_t pinnumber, vuint8_t *value);//read status
 //TIMER APIS
 DELAY_E DELAY(int prescaler,int intial_value,int no_overflow);
-void delay1(double t);
+DELAY_E delay1(double t);//DELAY FUCTION FOR TIMER 0 TAKES TIME IN SECONDS
 
 
 #endif /* DRIVER_LIB_H_ */

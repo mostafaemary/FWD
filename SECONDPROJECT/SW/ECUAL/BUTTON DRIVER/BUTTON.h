@@ -2,7 +2,7 @@
  * BUTTON.h
  *
  * Created: 9/30/2022 2:22:59 PM
- *  Author: MOSTAFA
+ *  Author: MOSTAFA EMARY
  */ 
 
 
@@ -16,9 +16,9 @@
 
 typedef enum BUTTON_S
 {
-	PIN_LOW,PIN_HIGH
+	PIN_RELEASED,BUTTON_PRESSED,BUTTON_OK
 }BUTTON_S;
-void BUTTON_init(vuint8_t portnumber,vuint8_t pinnumber);//button is an input device
+BUTTON_S BUTTON_init(vuint8_t portnumber,vuint8_t pinnumber);//button is an input device
 BUTTON_S BUTTON_READ(vuint8_t portnumber,vuint8_t pinnumber);
 
 

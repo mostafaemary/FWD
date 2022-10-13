@@ -7,53 +7,20 @@
 #include "APPLICATION.h"
 //#include "util/delay.h"
 int mode=0;
-char LED;
-void APP_INIT()
+APP_ERRORS APP_INIT()//application intialization
 {
-	SREG|=(1<<7);
-	MCUCR|=(1<<1)|(1<<0);
-	GICR|=(1<<6);
+	//interrupt 0 configuration
+	SREG|=(1<<7);//enable global interrupt
+	MCUCR|=(1<<1)|(1<<0);//enable rising edge
+	GICR|=(1<<6);//enable interrupt 0
 	BUTTON_init(B_D,2);
-	while(1)
-	{
-			LED_ON(LED_A,0);
-			LED='G';
-			delay1(5);
-			LED_OFF(LED_A,0);
-			LED='Y';
-			LED_BLINK(LED_A,1,5,.5);
-			LED_ON(LED_A,2);
-			LED='R';
-			delay1(5);
-			LED_OFF(LED_A,2);
-			LED='Y';
-			LED_BLINK(LED_A,1,5,.5);
-	}
-}
-ISR(EXT_INT(1))
+while(1)//super loop to make application continously on
 {
-	PREDESTRAIN_MODE(LED);
+	NORMAL_MODE();
 }
-
-void PREDESTRAIN_MODE(char x)
+	return APP_OK;
+}
+ISR(EXT_INT(1))//INTERRUPT SERVICE ROUTINE CALL PEDESTRAIN MODE WHEN INT0 IS OCCURE(PRESS THE PUSH BUTTON)
 {
-	if(x=='R')
-	{
-		LED_OFF(LED_A,2);
-		mode1();
-		LED_ON(LED_A,2);
-	}
-	else if(x=='G')
-	{
-		
-		LED_OFF(LED_A,0);
-		mode2();
-		LED_ON(LED_A,0);
-	}
-	else
-	{
-		LED_OFF(LED_A,1);
-		mode2();
-		LED_ON(LED_A,1);
-	}
+	PREDESTRAIN_MODE(NORMAL_MODE());
 }
